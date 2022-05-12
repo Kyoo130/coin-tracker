@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Router from "./Router";
-import { createGlobalStyle } from "styled-components";
+import {createGlobalStyle, DefaultTheme} from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -61,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
 
+  //style custom
   * {
     box-sizing: border-box;
   }
@@ -73,6 +74,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: inherit;
   }
 `;
 
