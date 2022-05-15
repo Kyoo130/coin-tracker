@@ -24,9 +24,10 @@ const Coin = styled.li`
   margin-bottom: 10px;
 
   a {
+    display: flex;
+    align-items: center;
     padding: 20px;
     transition: color 0.2s ease-in;
-    display: block;
   }
 
   &:hover {
@@ -46,6 +47,12 @@ const Loader = styled.span`
   display: block;
 `;
 
+const Img = styled.img`
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+`;
+
 interface CoinInterface {
   id: string;
   name: string;
@@ -62,7 +69,9 @@ const Coins = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`${process.env.REACT_APP_COINPAPRIKA_API_KEY}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_COINPAPRIKA_API_KEY}`
+      );
       const json = await response.json();
       setCoins(json.slice(0, 100));
       setLoading(false);
@@ -80,7 +89,13 @@ const Coins = () => {
         <CoinsList>
           {coins.map((coin) => (
             <Coin key={coin.id}>
-              <Link to={`/${coin.id}`}>{coin.name} &rarr;</Link>
+              <Link to={`/${coin.id}`} state={{ name: coin.name }}>
+                <Img
+                  src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLocaleLowerCase()}`}
+                  alt={coin.name}
+                />
+                {coin.name} &rarr;
+              </Link>
             </Coin>
           ))}
         </CoinsList>
