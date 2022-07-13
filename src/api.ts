@@ -21,6 +21,6 @@ export function fetchCoinHistory(coinId: string) {
   const startDate = endDate - 60 * 60 * 23 * 7;
 
   return fetch(
-    `${BASE_URL}/coins/${coinId}/ohlcv/historical?start=${startDate}&end=${endDate}`
+    `https://ohlcv-api.nomadcoders.workers.dev/?coinId=${coinId}`
   ).then((response) => response.json());
 }
