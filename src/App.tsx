@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "./Router";
 import { createGlobalStyle } from "styled-components";
-import {ReactQueryDevtools} from "react-query/devtools";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-weight: 300;
-    color: ${props => props.theme.textColor};
+    color: ${(props) => props.theme.textColor};
     line-height: 1.2;
   }
 
